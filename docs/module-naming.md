@@ -26,7 +26,7 @@ Rule:
 ## Good Examples
 
 - `shell-interactive.nix`
-- `git-core.nix`
+- `cli-vcs.nix`
 - `runtime-node.nix`
 - `xdg-user-dirs.nix`
 - `window-management.nix`
@@ -63,8 +63,8 @@ When adding to `flake.nix` `homeModules`:
 
 Example mapping:
 
-- file: `home/modules/common/git-core.nix`
-- key: `common-git-core`
+- file: `home/modules/common/cli-vcs.nix`
+- key: `common-cli-vcs`
 
 ## Transition Policy
 

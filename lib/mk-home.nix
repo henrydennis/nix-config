@@ -53,7 +53,6 @@ home-manager.lib.homeManagerConfiguration {
 
       # Development runtimes and version control
       ../home/modules/common/runtime-languages.nix
-      ../home/modules/common/git-core.nix
       ../home/modules/common/cli-vcs.nix
 
       # Command-line workflow and utilities
