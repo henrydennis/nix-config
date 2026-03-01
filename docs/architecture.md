@@ -24,6 +24,7 @@ Top-level boundaries:
 4. Platform modules are selected:
 `darwin/security-pinentry.nix` + `darwin/window-management.nix` for Darwin, or `linux/xdg-user-dirs.nix` for Linux.
 5. Base shared modules are always included from `home/modules/common/`.
+   Runtime concerns can be split into multiple shared modules to keep ownership narrow (for example `runtime-languages.nix` and `runtime-codex.nix`).
 6. The module chain is extended with `profileModules`, then `hostModules`, then optional `extraModules`.
 7. `home-manager` evaluates the merged module graph and produces an activation package.
 

@@ -32,6 +32,9 @@ Replace `<config-id>` with a key from `homeConfigurations` in `flake.nix`.
 # Inspect flake outputs
 nix flake show
 
+# Validate, build, and switch for the current user/host
+./scripts/hmup
+
 # Validate flake evaluation and checks
 nix flake check
 

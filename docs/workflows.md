@@ -12,6 +12,21 @@ nix flake show
 
 Use one of those keys as `<config-id>` in commands below.
 
+## Fast Path: Validate, Build, and Switch Current Host
+
+Use the repository helper script when switching from this checkout:
+
+```bash
+./scripts/hmup
+```
+
+What it does:
+
+1. derives `<config-id>` from `$(id -un)@$(scutil --get LocalHostName || hostname -s)`.
+2. runs `nix flake check`.
+3. runs `nix build .#homeConfigurations."<config-id>".activationPackage`.
+4. runs `home-manager switch --flake .#<config-id>`.
+
 ## Install Repository Hooks
 
 ```bash

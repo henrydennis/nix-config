@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+repo_dir="$(cd -- "${script_dir}/.." >/dev/null 2>&1 && pwd)"
+
+host="$(scutil --get LocalHostName 2>/dev/null || hostname -s)"
+host="${host%%.*}"
+config_id="$(id -un)@${host}"
+
+cd "${repo_dir}"
+
+nix flake check
+nix build ".#homeConfigurations.\"${config_id}\".activationPackage"
+home-manager switch --flake ".#${config_id}"

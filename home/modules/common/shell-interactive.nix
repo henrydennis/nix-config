@@ -14,6 +14,7 @@
       sesh = "tmux attach || exec tmux new-session && exit;";
       gs = "git status -sb";
       ta = "tmux attach || tmux new-session";
+      hmup = "$HOME/Work/nix-config/scripts/hmup";
     };
   };
 

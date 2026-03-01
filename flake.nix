@@ -33,6 +33,7 @@
         common-shell-interactive = import ./home/modules/common/shell-interactive.nix;
         common-editor-neovim = import ./home/modules/common/editor-neovim.nix;
         common-runtime-languages = import ./home/modules/common/runtime-languages.nix;
+        common-runtime-codex = import ./home/modules/common/runtime-codex.nix;
         common-cli-vcs = import ./home/modules/common/cli-vcs.nix;
         common-cli-shell-productivity = import ./home/modules/common/cli-shell-productivity.nix;
         common-cli-terminal = import ./home/modules/common/cli-terminal.nix;
