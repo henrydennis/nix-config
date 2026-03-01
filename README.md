@@ -1,4 +1,4 @@
-# nix-profile
+# nix-config
 
 This repository manages home-manager configurations for multiple hosts from a single flake.
 It keeps common behavior centralized while allowing host-specific and platform-specific overrides.
