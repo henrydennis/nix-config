@@ -17,6 +17,8 @@ Full documentation lives in [`docs/`](./docs/README.md). Use this root README as
 - `home/hosts/`: host-specific overrides and environment details.
 - `overlays/`: package overlay wiring.
 - `pkgs/`: local packages exposed through overlays and flake outputs.
+- `scripts/`: repository maintenance scripts (for example git hook setup).
+- `.githooks/`: repository-local git hooks used via `core.hooksPath`.
 - `docs/`: architecture, workflows, naming standards, and maintenance process.
 
 ## Quick Recipes
@@ -24,6 +26,9 @@ Full documentation lives in [`docs/`](./docs/README.md). Use this root README as
 Replace `<config-id>` with a key from `homeConfigurations` in `flake.nix`.
 
 ```bash
+# Install repository git hooks (includes gitleaks pre-commit scan)
+./scripts/setup-git-hooks.sh
+
 # Inspect flake outputs
 nix flake show
 

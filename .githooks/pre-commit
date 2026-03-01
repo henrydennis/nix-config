@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+set -eu
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+run_gitleaks() {
+  if command -v gitleaks >/dev/null 2>&1; then
+    gitleaks git --staged --no-banner --redact --log-level warn
+    return $?
+  fi
+
+  if command -v nix >/dev/null 2>&1; then
+    nix run nixpkgs#gitleaks -- git --staged --no-banner --redact --log-level warn
+    return $?
+  fi
+
+  cat >&2 <<'EOF'
+pre-commit: gitleaks is required to scan staged changes for secrets.
+Install gitleaks in PATH or install Nix and re-run the commit.
+EOF
+  exit 1
+}
+
+if ! run_gitleaks; then
+  cat >&2 <<'EOF'
+pre-commit: potential secrets detected by gitleaks.
+Resolve the findings or explicitly allowlist as appropriate before committing.
+EOF
+  exit 1
+fi

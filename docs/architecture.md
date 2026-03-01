@@ -13,6 +13,8 @@ Top-level boundaries:
 - `home/hosts/`: host-specific module fragments.
 - `pkgs/`: local package definitions.
 - `overlays/`: local package integration into `pkgs`.
+- `scripts/`: repository maintenance scripts.
+- `.githooks/`: repository-local git hooks wired via `core.hooksPath`.
 
 ## Configuration Flow
 

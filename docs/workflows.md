@@ -12,6 +12,18 @@ nix flake show
 
 Use one of those keys as `<config-id>` in commands below.
 
+## Install Repository Hooks
+
+```bash
+# configure repository-local git hooks path and permissions
+./scripts/setup-git-hooks.sh
+```
+
+Expected result:
+
+- `git config --get core.hooksPath` returns `.githooks`.
+- commits run gitleaks scan against staged changes before commit is created.
+
 ## Inspect and Evaluate
 
 ```bash
@@ -75,6 +87,19 @@ Recommended review sequence after lockfile updates:
 1. inspect lockfile diff.
 2. run build for each maintained `<config-id>`.
 3. switch only after successful build and check.
+
+## Run Secret Scan Manually
+
+```bash
+# scan staged changes exactly as pre-commit does
+gitleaks git --staged --no-banner --redact --log-level warn
+```
+
+If `gitleaks` is not already installed in your shell:
+
+```bash
+nix run nixpkgs#gitleaks -- git --staged --no-banner --redact --log-level warn
+```
 
 ## Rollback-Oriented Recovery
 
