@@ -2,17 +2,10 @@
 {
   programs.git = {
     enable = true;
+    lfs.enable = true;
     settings = {
       init.defaultBranch = "main";
       pull.rebase = false;
-      filter = {
-        "lfs" = {
-          smudge = "git-lfs smudge -- %f";
-          process = "git-lfs filter-process";
-          required = true;
-          clean = "git-lfs clean -- %f";
-        };
-      };
     };
   };
 }

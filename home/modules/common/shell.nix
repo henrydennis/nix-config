@@ -11,6 +11,7 @@
       ls = "eza --icons --color=always --group-directories-first";
       ll = "eza -l --icons --color=always --group-directories-first";
       la = "eza -la --icons --color=always --group-directories-first";
+      sesh = "tmux attach || exec tmux new-session && exit;";
       gs = "git status -sb";
       ta = "tmux attach || tmux new-session";
     };
