@@ -31,7 +31,9 @@
         common-git = import ./home/modules/common/git.nix;
         common-shell = import ./home/modules/common/shell.nix;
         common-editor = import ./home/modules/common/editor.nix;
+        common-tooling = import ./home/modules/common/tooling.nix;
         darwin-defaults = import ./home/modules/darwin/defaults.nix;
+        darwin-apps = import ./home/modules/darwin/darwin-apps.nix;
         linux-xdg = import ./home/modules/linux/xdg.nix;
       };
 

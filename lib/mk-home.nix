@@ -22,7 +22,10 @@ let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   osModules =
     if isDarwin then
-      [ ../home/modules/darwin/defaults.nix ]
+      [
+        ../home/modules/darwin/defaults.nix
+        ../home/modules/darwin/darwin-apps.nix
+      ]
     else
       [ ../home/modules/linux/xdg.nix ];
 
@@ -44,6 +47,7 @@ home-manager.lib.homeManagerConfiguration {
       ../home/modules/common/git.nix
       ../home/modules/common/shell.nix
       ../home/modules/common/editor.nix
+      ../home/modules/common/tooling.nix
       {
         home = {
           inherit username homeDirectory stateVersion;

@@ -10,7 +10,5 @@
   home.packages = with pkgs; [
     bat
     fd
-    jq
-    ripgrep
   ];
 }
