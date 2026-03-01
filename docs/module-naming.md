@@ -4,13 +4,17 @@
 
 New module files should follow:
 
-`<capability>-<scope>[-<platform>].nix`
+`<capability>-<scope>.nix`
 
 Definitions:
 
 - `<capability>`: the primary function being configured.
 - `<scope>`: the boundary or concern within that capability.
-- `[-<platform>]`: optional platform suffix (`darwin`, `linux`) when behavior is platform-bound.
+
+Rule:
+
+- do not repeat directory context in filenames (for example `common`, `darwin`, `linux`).
+- platform or shared scope is expressed by placement under `home/modules/<scope-dir>/`, not by filename suffix.
 
 ## Naming Goals
 
@@ -21,11 +25,11 @@ Definitions:
 
 ## Good Examples
 
-- `shell-interactive-common.nix`
-- `git-core-common.nix`
-- `runtime-node-common.nix`
-- `xdg-user-dirs-linux.nix`
-- `window-management-darwin.nix`
+- `shell-interactive.nix`
+- `git-core.nix`
+- `runtime-node.nix`
+- `xdg-user-dirs.nix`
+- `window-management.nix`
 
 ## Avoid
 
@@ -36,12 +40,18 @@ Definitions:
 
 ## Directory Placement
 
-Use directory + suffix together:
+Use directory as the context boundary:
 
 - cross-platform shared modules: `home/modules/common/`
 - platform-bound modules: `home/modules/darwin/` or `home/modules/linux/`
 
-The filename should still include explicit scope and optional platform suffix when it adds clarity.
+Layout preference:
+
+- default to a flat layout directly under the scope directory (`common/`, `darwin/`, `linux/`).
+- avoid creating a folder per module.
+- create subdirectories only when a capability has multiple tightly related module files.
+
+The filename should include capability and concern only; avoid re-stating directory context.
 
 ## Export Key Alignment
 
@@ -53,7 +63,7 @@ When adding to `flake.nix` `homeModules`:
 
 Example mapping:
 
-- file: `home/modules/common/git-core-common.nix`
+- file: `home/modules/common/git-core.nix`
 - key: `common-git-core`
 
 ## Transition Policy

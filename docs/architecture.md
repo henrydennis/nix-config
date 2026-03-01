@@ -20,7 +20,7 @@ Top-level boundaries:
 2. `homeConfigurations` entries pass identity and module lists into `mkHome`.
 3. `lib/mk-home.nix` creates `pkgs` for the selected `system`, applies overlays, and detects platform.
 4. Platform modules are selected:
-`darwin/defaults.nix` + `darwin/darwin-apps.nix` for Darwin, or `linux/xdg.nix` for Linux.
+`darwin/security-pinentry.nix` + `darwin/window-management.nix` for Darwin, or `linux/xdg-user-dirs.nix` for Linux.
 5. Base shared modules are always included from `home/modules/common/`.
 6. The module chain is extended with `profileModules`, then `hostModules`, then optional `extraModules`.
 7. `home-manager` evaluates the merged module graph and produces an activation package.

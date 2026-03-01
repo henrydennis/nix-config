@@ -28,14 +28,20 @@
 
       homeModules = {
         profile-base = import ./home/profiles/base.nix;
-        common-git = import ./home/modules/common/git.nix;
-        common-shell = import ./home/modules/common/shell.nix;
-        common-editor = import ./home/modules/common/editor.nix;
-        common-runtimes = import ./home/modules/common/runtimes.nix;
-        common-tooling = import ./home/modules/common/tooling.nix;
-        darwin-defaults = import ./home/modules/darwin/defaults.nix;
-        darwin-apps = import ./home/modules/darwin/darwin-apps.nix;
-        linux-xdg = import ./home/modules/linux/xdg.nix;
+
+        common-session-defaults = import ./home/modules/common/session-defaults.nix;
+        common-shell-interactive = import ./home/modules/common/shell-interactive.nix;
+        common-editor-neovim = import ./home/modules/common/editor-neovim.nix;
+        common-runtime-languages = import ./home/modules/common/runtime-languages.nix;
+        common-git-core = import ./home/modules/common/git-core.nix;
+        common-cli-vcs = import ./home/modules/common/cli-vcs.nix;
+        common-cli-shell-productivity = import ./home/modules/common/cli-shell-productivity.nix;
+        common-cli-terminal = import ./home/modules/common/cli-terminal.nix;
+        common-cli-utils = import ./home/modules/common/cli-utils.nix;
+
+        darwin-security-pinentry = import ./home/modules/darwin/security-pinentry.nix;
+        darwin-window-management = import ./home/modules/darwin/window-management.nix;
+        linux-xdg-user-dirs = import ./home/modules/linux/xdg-user-dirs.nix;
       };
 
       homeConfigurations = {

@@ -8,9 +8,4 @@
   home.packages = with pkgs; [
     xdg-utils
   ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    PAGER = "less";
-  };
 }

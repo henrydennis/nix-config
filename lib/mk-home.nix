@@ -23,11 +23,11 @@ let
   osModules =
     if isDarwin then
       [
-        ../home/modules/darwin/defaults.nix
-        ../home/modules/darwin/darwin-apps.nix
+        ../home/modules/darwin/security-pinentry.nix
+        ../home/modules/darwin/window-management.nix
       ]
     else
-      [ ../home/modules/linux/xdg.nix ];
+      [ ../home/modules/linux/xdg-user-dirs.nix ];
 
   homeDirectory =
     if isDarwin then
@@ -44,11 +44,22 @@ home-manager.lib.homeManagerConfiguration {
 
   modules =
     [
-      ../home/modules/common/git.nix
-      ../home/modules/common/shell.nix
-      ../home/modules/common/editor.nix
-      ../home/modules/common/runtimes.nix
-      ../home/modules/common/tooling.nix
+      # Shared session defaults
+      ../home/modules/common/session-defaults.nix
+
+      # Interactive shell and editor
+      ../home/modules/common/shell-interactive.nix
+      ../home/modules/common/editor-neovim.nix
+
+      # Development runtimes and version control
+      ../home/modules/common/runtime-languages.nix
+      ../home/modules/common/git-core.nix
+      ../home/modules/common/cli-vcs.nix
+
+      # Command-line workflow and utilities
+      ../home/modules/common/cli-shell-productivity.nix
+      ../home/modules/common/cli-terminal.nix
+      ../home/modules/common/cli-utils.nix
       {
         home = {
           inherit username homeDirectory stateVersion;

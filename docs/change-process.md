@@ -21,7 +21,10 @@ Use these placement rules:
 
 Apply naming standard from `module-naming.md`:
 
-`<capability>-<scope>[-<platform>].nix`
+`<capability>-<scope>.nix`
+
+Do not include directory context (for example `common`, `darwin`, `linux`) in the filename.
+Default to placing modules directly under the selected scope directory; avoid creating a folder per module.
 
 If adding a reusable exported module, ensure `flake.nix` `homeModules` key aligns with filename terms.
 
