@@ -47,6 +47,7 @@ home-manager.lib.homeManagerConfiguration {
       ../home/modules/common/git.nix
       ../home/modules/common/shell.nix
       ../home/modules/common/editor.nix
+      ../home/modules/common/runtimes.nix
       ../home/modules/common/tooling.nix
       {
         home = {

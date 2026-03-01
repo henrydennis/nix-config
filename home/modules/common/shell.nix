@@ -5,10 +5,14 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
     shellAliases = {
-      ll = "ls -alF";
-      la = "ls -A";
+      cc = "claude --dangerously-skip-permissions";
+      ls = "eza --icons --color=always --group-directories-first";
+      ll = "eza -l --icons --color=always --group-directories-first";
+      la = "eza -la --icons --color=always --group-directories-first";
       gs = "git status -sb";
+      ta = "tmux attach || tmux new-session";
     };
   };
 
