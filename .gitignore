@@ -1,0 +1,13 @@
+# Nix build outputs
+/result
+/result-*
+
+# Direnv local state
+/.direnv/
+
+# macOS Finder metadata
+.DS_Store
+
+# Editor swap/backup files
+*.swp
+*~
