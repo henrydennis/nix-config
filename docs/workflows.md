@@ -22,6 +22,7 @@ Use one of those keys as `<config-id>` in commands below.
 Expected result:
 
 - `git config --get core.hooksPath` returns `.githooks`.
+- `gitleaks` is available from `PATH` or `~/.nix-profile/bin/gitleaks`.
 - commits run gitleaks scan against staged changes before commit is created.
 
 ## Inspect and Evaluate
@@ -98,7 +99,8 @@ gitleaks git --staged --no-banner --redact --log-level warn
 If `gitleaks` is not already installed in your shell:
 
 ```bash
-nix run nixpkgs#gitleaks -- git --staged --no-banner --redact --log-level warn
+nix profile add nixpkgs#gitleaks
+gitleaks git --staged --no-banner --redact --log-level warn
 ```
 
 ## Rollback-Oriented Recovery

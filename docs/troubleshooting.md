@@ -133,15 +133,15 @@ Resolve:
 2. identify dependency changes that affect evaluation.
 3. patch modules as needed, then re-run validation.
 
-## Pre-Commit Hook Fails: gitleaks or nix Not Found
+## Pre-Commit Hook Fails: gitleaks Not Found
 
 Symptoms:
 
-- commit is blocked with an error indicating `gitleaks` and `nix` are unavailable.
+- commit is blocked with an error indicating `gitleaks` is unavailable.
 
 Likely causes:
 
-- neither `gitleaks` nor `nix` is available on `PATH`.
+- `gitleaks` is not installed and `~/.nix-profile/bin/gitleaks` is missing.
 - hooks were not installed for this repository yet.
 
 Diagnose:
@@ -149,7 +149,7 @@ Diagnose:
 ```bash
 git config --get core.hooksPath
 command -v gitleaks
-command -v nix
+ls -l ~/.nix-profile/bin/gitleaks
 ```
 
 Resolve:
@@ -158,11 +158,15 @@ Resolve:
 ```bash
 ./scripts/setup-git-hooks.sh
 ```
-2. if `gitleaks` is missing but Nix is available, use:
+2. if `gitleaks` is missing but Nix is available, install it:
 ```bash
-nix run nixpkgs#gitleaks -- version
+nix profile add nixpkgs#gitleaks
 ```
-3. if Nix is unavailable, install `gitleaks` so `gitleaks` is in `PATH`.
+3. verify `gitleaks` is now available:
+```bash
+~/.nix-profile/bin/gitleaks version
+```
+4. if Nix is unavailable, install `gitleaks` so `gitleaks` is in `PATH`.
 
 ## Recovery Path
 
