@@ -27,6 +27,19 @@ What it does:
 3. runs `nix build .#homeConfigurations."<config-id>".activationPackage`.
 4. runs `home-manager switch --flake .#<config-id>`.
 
+## Codex CLI Profiles
+
+Codex config is managed in this repo and written to `~/.codex/config.toml` by Home Manager.
+Experimental feature flags are enabled by default under `[features]`.
+
+```bash
+# default profile from config.toml (equivalent to --dangerously-bypass-approvals-and-sandbox)
+codex
+
+# safer profile (approvals on failure + workspace-write sandbox)
+codex --profile safe
+```
+
 ## Install Repository Hooks
 
 ```bash

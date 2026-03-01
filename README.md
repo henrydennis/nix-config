@@ -48,6 +48,14 @@ home-manager switch --flake .#<config-id>
 nix flake update
 ```
 
+## Codex CLI
+
+Codex is installed by `home/modules/common/runtime-codex.nix` and configured declaratively at `~/.codex/config.toml`.
+
+- default behavior: `approval_policy = "never"` + `sandbox_mode = "danger-full-access"` (equivalent to running with `--dangerously-bypass-approvals-and-sandbox`).
+- experimental Codex features are enabled by default via `[features]` in `~/.codex/config.toml`.
+- safer profile when needed: `codex --profile safe` (`approval_policy = "on-failure"` + `sandbox_mode = "workspace-write"`).
+
 ## Documentation Rule
 
 Any structural or workflow change must update the relevant files in `docs/` in the same change.
