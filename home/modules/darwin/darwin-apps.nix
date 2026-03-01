@@ -2,7 +2,7 @@
 {
   programs = {
     alacritty = {
-      enable = true;
+      enable = false;
       settings = {
         terminal.shell.program = "zsh";
       };
