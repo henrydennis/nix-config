@@ -13,6 +13,7 @@ in
   home.file.".codex/config.toml".text = ''
     model = "gpt-5.3-codex"
     model_reasoning_effort = "xhigh"
+    plan_mode_reasoning_effort = "xhigh"
     approval_policy = "never"
     sandbox_mode = "danger-full-access"
     notify = ["terminal_bell"]
